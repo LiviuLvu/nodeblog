@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var multer = require('multer');
-var upload = multer({ dest: 'uploads/' })
+var upload = multer({ dest: 'uploads/' });
 var expressValidator = require('express-validator');
 
 var mongo = require('mongodb');
@@ -47,9 +47,9 @@ app.use(session({
 // Express Validator
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
+      var namespace = param.split('.'),
+      root    = namespace.shift(),
+      formParam = root;
 
     while(namespace.length) {
       formParam += '[' + namespace.shift() + ']';
